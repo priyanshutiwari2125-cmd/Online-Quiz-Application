@@ -1,0 +1,103 @@
+{% extends "student/base.html" %}
+
+{% block title %}{{ quiz.title }} - QuizMaster{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <input type="hidden" id="totalQuestionsCount" value="{{ total_questions }}">
+
+    <!-- Sticky Quiz Info & Timer Bar -->
+    <div class="quiz-sticky-header">
+        <div class="row align-items-center g-3">
+            <div class="col-md-5">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1rem;">
+                        <i class="bi {{ quiz.icon }}"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-0">{{ quiz.title }}</h5>
+                        <small class="text-muted"><span id="answeredCountDisplay">0</span> of {{ total_questions }} answered</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="progress" style="height: 10px; border-radius: 9999px;">
+                    <div id="quizProgressBar" class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+
+            <div class="col-md-3 d-flex justify-content-md-end align-items-center gap-2">
+                <div id="timerBox" class="timer-box">
+                    <i class="bi bi-clock-history"></i>
+                    <span id="quizTimer" data-time-limit="{{ quiz.time_limit }}">--:--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Question Form -->
+    <form id="quizForm" method="POST" action="{{ url_for('submit_quiz', quiz_id=quiz.id) }}">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                {% for q in questions %}
+                <div class="question-block" id="q-block-{{ loop.index }}">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge bg-primary text-white px-3 py-2 rounded-pill fw-bold">
+                            Question {{ loop.index }} of {{ total_questions }}
+                        </span>
+                        <span class="text-muted small">Single Choice (1 Point)</span>
+                    </div>
+
+                    <h4 class="question-title font-mono">{{ q.question }}</h4>
+
+                    <div class="option-group">
+                        <!-- Option A -->
+                        <label class="option-card" for="q_{{ q.id }}_A">
+                            <input type="radio" name="question_{{ q.id }}" id="q_{{ q.id }}_A" value="A">
+                            <div class="option-letter">A</div>
+                            <div class="option-text font-mono">{{ q.option_a }}</div>
+                        </label>
+
+                        <!-- Option B -->
+                        <label class="option-card" for="q_{{ q.id }}_B">
+                            <input type="radio" name="question_{{ q.id }}" id="q_{{ q.id }}_B" value="B">
+                            <div class="option-letter">B</div>
+                            <div class="option-text font-mono">{{ q.option_b }}</div>
+                        </label>
+
+                        <!-- Option C -->
+                        <label class="option-card" for="q_{{ q.id }}_C">
+                            <input type="radio" name="question_{{ q.id }}" id="q_{{ q.id }}_C" value="C">
+                            <div class="option-letter">C</div>
+                            <div class="option-text font-mono">{{ q.option_c }}</div>
+                        </label>
+
+                        <!-- Option D -->
+                        <label class="option-card" for="q_{{ q.id }}_D">
+                            <input type="radio" name="question_{{ q.id }}" id="q_{{ q.id }}_D" value="D">
+                            <div class="option-letter">D</div>
+                            <div class="option-text font-mono">{{ q.option_d }}</div>
+                        </label>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Submit Bar -->
+                <div class="app-card p-4 text-center mt-4">
+                    <h5 class="fw-bold mb-2">Ready to complete your test?</h5>
+                    <p class="text-muted small mb-3">Make sure you have reviewed your answers before submitting.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary" onclick="return confirm('Are you sure you want to cancel? Your progress will not be saved.');">
+                            <i class="bi bi-x-circle"></i> Cancel Quiz
+                        </a>
+                        <button type="submit" class="btn btn-primary btn-lg px-5">
+                            <i class="bi bi-check2-circle"></i> Submit Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

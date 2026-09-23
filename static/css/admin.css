@@ -1,0 +1,100 @@
+/* =========================================================
+   QuizMaster - Dedicated Administrator Control Center Styles
+   ========================================================= */
+
+:root {
+    --admin-primary: #4338ca;
+    --admin-primary-dark: #312e81;
+    --admin-accent: #6366f1;
+    --admin-danger: #e11d48;
+    --admin-dark-bg: #0f172a;
+    --admin-card-border: #e2e8f0;
+}
+
+/* Admin Topbar Navbar */
+.admin-navbar {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%) !important;
+    border-bottom: 2px solid #3730a3 !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.35);
+}
+
+.admin-navbar .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.admin-brand-icon {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+    color: #ffffff;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 0 15px rgba(225, 29, 72, 0.4);
+}
+
+.admin-navbar .nav-link {
+    color: #cbd5e1 !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.9rem !important;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.admin-navbar .nav-link:hover,
+.admin-navbar .nav-link.active {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.admin-badge-role {
+    background: linear-gradient(135deg, #e11d48 0%, #9f1239 100%);
+    color: #ffffff;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Admin Banner */
+.admin-banner {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    color: #ffffff;
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(49, 46, 129, 0.3);
+}
+
+.admin-banner h2 {
+    color: #ffffff;
+}
+
+.admin-stat-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.08);
+}
+
+.admin-footer {
+    background: #0f172a;
+    color: #94a3b8;
+    border-top: 1px solid #1e293b;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}

@@ -1,0 +1,65 @@
+{% extends "student/base.html" %}
+
+{% block title %}Student Registration - QuizMaster{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="app-card p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <div class="brand-icon mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.6rem; background: #eef2ff; color: #4f46e5; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-person-plus-fill"></i>
+                    </div>
+                    <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-1 rounded-pill mb-2">Student Portal</span>
+                    <h3 class="fw-bold">Create Student Account</h3>
+                    <p class="text-muted small">Join QuizMaster to attempt quizzes, track your performance, and earn ranks</p>
+                </div>
+
+                <form method="POST" action="{{ url_for('register') }}">
+                    <div class="mb-3">
+                        <label for="username" class="form-label fw-semibold">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-person text-muted"></i></span>
+                            <input type="text" class="form-control border-start-0" id="username" name="username" required placeholder="e.g. JohnDoe" value="{{ username or '' }}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Email Address</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope text-muted"></i></span>
+                            <input type="email" class="form-control border-start-0" id="email" name="email" required placeholder="name@example.com" value="{{ email or '' }}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-semibold">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-key text-muted"></i></span>
+                            <input type="password" class="form-control border-start-0" id="password" name="password" required minlength="4" placeholder="At least 4 characters">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="confirm_password" class="form-label fw-semibold">Confirm Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-shield-check text-muted"></i></span>
+                            <input type="password" class="form-control border-start-0" id="confirm_password" name="confirm_password" required minlength="4" placeholder="Repeat your password">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 mb-3">
+                        <i class="bi bi-person-check"></i> Register Student Account
+                    </button>
+
+                    <div class="text-center">
+                        <span class="text-muted small">Already have an account?</span>
+                        <a href="{{ url_for('login') }}" class="fw-bold small text-primary ms-1">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

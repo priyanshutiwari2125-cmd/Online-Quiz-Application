@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Leaderboard - QuizMaster{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <span class="badge bg-warning-subtle text-warning-emphasis px-3 py-2 rounded-pill fw-bold mb-2">
+            <i class="bi bi-trophy-fill text-warning me-1"></i> Hall of Fame
+        </span>
+        <h2 class="display-6 fw-bold">Student Leaderboard</h2>
+        <p class="text-muted">Top performers across all quizzes on QuizMaster platform.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="app-card p-4">
+                {% if top_scorers %}
+                <div class="table-responsive">
+                    <table class="table table-custom table-hover">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">Rank</th>
+                                <th>Student</th>
+                                <th class="text-center">Quizzes Attempted</th>
+                                <th class="text-center">Average Score</th>
+                                <th class="text-center">Best Score</th>
+                                <th class="text-end">Total Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for student in top_scorers %}
+                            <tr {% if current_user and current_user['username'] == student.username %}class="table-primary"{% endif %}>
+                                <td>
+                                    {% if loop.index == 1 %}
+                                        <span class="badge bg-warning text-dark fs-6 rounded-pill px-3 py-1">🥇 1st</span>
+                                    {% elif loop.index == 2 %}
+                                        <span class="badge bg-secondary text-white fs-6 rounded-pill px-3 py-1">🥈 2nd</span>
+                                    {% elif loop.index == 3 %}
+                                        <span class="badge bg-danger-subtle text-danger fs-6 rounded-pill px-3 py-1">🥉 3rd</span>
+                                    {% else %}
+                                        <span class="fw-bold text-muted ms-2">#{{ loop.index }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 34px; height: 34px;">
+                                            {{ student.username[0].upper() }}
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">
+                                                {{ student.username }}
+                                                {% if current_user and current_user['username'] == student.username %}
+                                                    <span class="badge bg-primary ms-1">You</span>
+                                                {% endif %}
+                                            </div>
+                                            <small class="text-muted">{{ student.email }}</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge bg-light text-dark border">{{ student.total_quizzes }}</span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="fw-bold text-primary">{{ student.avg_percent }}%</span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="fw-bold text-success">{{ student.max_percent }}%</span>
+                                </td>
+                                <td class="text-end">
+                                    <span class="badge bg-success-subtle text-success fs-6 fw-bold">
+                                        {{ student.total_points }} pts
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="bi bi-trophy text-muted fs-1"></i>
+                    <p class="text-muted mt-2">No quiz attempts recorded yet. Be the first to rank on the leaderboard!</p>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Take a Quiz Now</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
