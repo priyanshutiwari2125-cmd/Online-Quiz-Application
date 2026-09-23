@@ -380,5 +380,5 @@ def server_error(e):
 
 if __name__ == "__main__":
     port = int(os.environ.get("STUDENT_PORT", 5000))
-    print(f"🎓 QuizMaster Student Portal running at http://127.0.0.1:{port}")
-    app.run(debug=True, port=port)
+    print(f"🎓 QuizMaster Student Portal running at http://0.0.0.0:{port}")
+    app.run(debug=True, host="0.0.0.0", port=port)
