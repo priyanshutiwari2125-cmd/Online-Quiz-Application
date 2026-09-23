@@ -1,6 +1,24 @@
 # QuizMaster – Online Quiz Management System
 > **Open Source Tools and Frameworks with Python Project**
 
+[![Live Demo - Student](https://img.shields.io/badge/Live_Demo-Student_Portal-4f46e5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://old-coins-retire.loca.lt)
+[![Live Demo - Admin](https://img.shields.io/badge/Live_Demo-Admin_Console-e11d48?style=for-the-badge&logo=shield&logoColor=white)](https://two-cycles-carry.loca.lt)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.1-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+
+---
+
+## 🌐 Live Application Links
+
+| Application | Live URL | Direct Login URL | Demo Login Credentials |
+| :--- | :--- | :--- | :--- |
+| 🎓 **Student Portal** | [**https://old-coins-retire.loca.lt**](https://old-coins-retire.loca.lt) | [`/login`](https://old-coins-retire.loca.lt/login) | `rahul@gmail.com` / `rahul123` |
+| 🛡️ **Admin Control Center** | [**https://two-cycles-carry.loca.lt**](https://two-cycles-carry.loca.lt) | [`/login`](https://two-cycles-carry.loca.lt/login) | `admin@quizmaster.com` / `admin123` |
+
+> 🔑 **First-Time Access Passcode**: If prompted with a *"Tunnel Password"* screen in your browser, enter IP: **`49.36.67.16`** and click **Click to Submit**.
+
+---
+
 An end-to-end, responsive web-based quiz management and testing platform built with **Python 3**, **Flask**, **SQLite3**, **Jinja2**, and **Bootstrap 5**.
 
 ---
