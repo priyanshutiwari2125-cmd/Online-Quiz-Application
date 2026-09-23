@@ -37,17 +37,19 @@ class StudentAppTestCase(unittest.TestCase):
             password='rahul123'
         ), follow_redirects=True)
 
-        res_quiz = self.client.get('/quiz/1')
-        self.assertEqual(res_quiz.status_code, 200)
-        self.assertIn(b'Python Basics', res_quiz.data)
-
-        # Submit answers
         conn = get_db_connection()
-        questions = conn.execute("SELECT id, correct_answer FROM questions WHERE quiz_id = 1").fetchall()
+        quiz = conn.execute("SELECT * FROM quizzes LIMIT 1").fetchone()
+        quiz_id = quiz["id"] if quiz else 1
+        questions = conn.execute("SELECT id, correct_answer FROM questions WHERE quiz_id = ?", (quiz_id,)).fetchall()
         conn.close()
 
+        res_quiz = self.client.get(f'/quiz/{quiz_id}')
+        self.assertEqual(res_quiz.status_code, 200)
+        self.assertIn(quiz["title"].encode() if quiz else b'Python', res_quiz.data)
+
+        # Submit answers
         submission_data = {f"question_{q['id']}": q['correct_answer'] for q in questions}
-        res_submit = self.client.post('/quiz/1/submit', data=submission_data, follow_redirects=True)
+        res_submit = self.client.post(f'/quiz/{quiz_id}/submit', data=submission_data, follow_redirects=True)
         self.assertEqual(res_submit.status_code, 200)
         self.assertIn(b'Results', res_submit.data)
         self.assertIn(b'Detailed Question Review', res_submit.data)
