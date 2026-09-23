@@ -1,8 +1,8 @@
 # QuizMaster – Online Quiz Management System
 > **Open Source Tools and Frameworks with Python Project**
 
-[![Live Demo - Student](https://img.shields.io/badge/Live_Demo-Student_Portal-4f46e5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://didactic-capybara-v6xj6rw96jvqfwqv7-5000.app.github.dev)
-[![Live Demo - Admin](https://img.shields.io/badge/Live_Demo-Admin_Console-e11d48?style=for-the-badge&logo=shield&logoColor=white)](https://didactic-capybara-v6xj6rw96jvqfwqv7-5001.app.github.dev)
+[![Live Demo - Student](https://img.shields.io/badge/Live_Demo-Student_Portal-4f46e5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://curly-goggles-pjx5jw94j5pj3rwrq-5000.app.github.dev)
+[![Live Demo - Admin](https://img.shields.io/badge/Live_Demo-Admin_Console-e11d48?style=for-the-badge&logo=shield&logoColor=white)](https://curly-goggles-pjx5jw94j5pj3rwrq-5001.app.github.dev)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 
@@ -12,8 +12,8 @@
 
 | Application | Live URL | Direct Login URL | Demo Credentials |
 | :--- | :--- | :--- | :--- |
-| 🎓 **Student Portal** | [**https://didactic-capybara-v6xj6rw96jvqfwqv7-5000.app.github.dev**](https://didactic-capybara-v6xj6rw96jvqfwqv7-5000.app.github.dev) | [`/login`](https://didactic-capybara-v6xj6rw96jvqfwqv7-5000.app.github.dev/login) | `rahul@gmail.com` / `rahul123` |
-| 🛡️ **Admin Control Center** | [**https://didactic-capybara-v6xj6rw96jvqfwqv7-5001.app.github.dev**](https://didactic-capybara-v6xj6rw96jvqfwqv7-5001.app.github.dev) | [`/login`](https://didactic-capybara-v6xj6rw96jvqfwqv7-5001.app.github.dev/login) | `admin@quizmaster.com` / `admin123` |
+| 🎓 **Student Portal** | [**https://curly-goggles-pjx5jw94j5pj3rwrq-5000.app.github.dev**](https://curly-goggles-pjx5jw94j5pj3rwrq-5000.app.github.dev) | [`/login`](https://curly-goggles-pjx5jw94j5pj3rwrq-5000.app.github.dev/login) | `rahul@gmail.com` / `rahul123` |
+| 🛡️ **Admin Control Center** | [**https://curly-goggles-pjx5jw94j5pj3rwrq-5001.app.github.dev**](https://curly-goggles-pjx5jw94j5pj3rwrq-5001.app.github.dev) | [`/login`](https://curly-goggles-pjx5jw94j5pj3rwrq-5001.app.github.dev/login) | `admin@quizmaster.com` / `admin123` |
 
 > 💡 **Note**: Make sure Port `5000` and Port `5001` are set to **Public** visibility in your Codespaces **Ports** panel so anyone can access them directly without signing in.
 
